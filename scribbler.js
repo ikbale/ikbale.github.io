@@ -21,6 +21,7 @@ if (document.getElementsByClassName('demo').length > 0) {
             - bring lots of coffee
             - bring more coffee
             - and dont forget your favorite IDE ;) `;
+
   var speed = 60;
 
   function typeItOut () {
