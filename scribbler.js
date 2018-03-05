@@ -13,14 +13,14 @@ var getAll = function (selector, scope) {
 if (document.getElementsByClassName('demo').length > 0) {
   var i = 0;
   var txt = `hello world
-            [Entry mode; press Ctrl+D to save and quit; press Ctrl+C to quit without saving]
+             Welcome to the android applications club
+            
+            ###todo for joining the party
 
-            ###todo for new year dinner party
-
-            - milk
-            - butter
-            - green onion
-            - lots and lots of kiwis 🥝`;
+            - get dressed
+            - bring lots of coffee
+            - bring more coffee
+            - and dont forget your favorite IDE ;) `;
   var speed = 60;
 
   function typeItOut () {
