@@ -31,7 +31,7 @@
       <aside class="doc__nav">
         <ul>
           <li class="js-btn selected">Intro</li>
-          <li class="js-btn">Features</li>
+          <li class="js-btn">Language features</li>
           <li class="js-btn">Performances</li>
           <li class="js-btn">Paradigms</li>
           <li class="js-btn">Conclusion</li>
@@ -69,7 +69,7 @@
           </div> -->
         </section>
         <section class="js-section">
-          <h3 class="section__title">Features</h3>
+          <h3 class="section__title">Language Features</h3>
           <p>Apparently, kotlin was created to try to address some issues that Java has. In this section, I will try to bring up the solutions solved in Kotlin that were once a pain for Android Developers. Here are some important features: </p>
           <table id="customers">
             <tr>
@@ -181,9 +181,42 @@
            
           </p>
           <div class="feature__item">
-             <h3 class="section__title">Test application:<b>(In Progress)</b></h3>
+             <h3 class="section__title">Test application:</h3>
           </div>
-            <p>I chose 3 common use cases to test an android app based on Java and Kotlin according to 3 criterias: easy, support and performance and I gave each one a grade on 10.</p>
+            <p>I chose 3 common use cases to test an android app based on Java and Kotlin according to 3 criterias: easy, support and performance and I gave each one a grade on 10. I chose some simple parts of a friend's app and is still in progress which is based on java and I converted those parts to Kotlin code and tested it out.</p>
+
+                <img src="test_app/item-list.jpg" width="220" height="400"/>
+                <img src="test_app/meeting.jpg" width="220" height="400"/>
+                <img src="test_app/inter_card.jpg" width="220" height="400"/>
+
+            
+        <h5>Java</h5>
+         <table id="customers">
+            <tr>
+              <th>Use case</th>
+              <th>Easy</th>
+              <th>Support</th>
+              <th>Performance</th>
+            </tr>
+            <tr>
+            <td>Item List</td>
+              <td>7/10</td>
+              <td>9/10</td>
+              <td>9/10</td>
+            </tr>
+            <tr>
+           <td>Interactive card</td>
+              <td>7/10</td>
+              <td>9/10</td>
+              <td>8/10</td>
+            </tr>
+            <tr>
+            <td>Meeting schedular</td>
+              <td>7/10</td>
+              <td>9/10</td>
+              <td>8/10</td>
+            </tr>
+          </table>
           <h5>Kotlin</h5>
          <table id="customers">
             <tr>
@@ -195,61 +228,48 @@
             </tr>
             <tr>
               <td>Item List</td>
+              <td>8,5/10</td>
               <td>8/10</td>
-              <td>8/10</td>
-              <td>8/10</td>
+              <td>7/10</td>
             </tr>
             <tr>
               <td>Interactive card</td>
+              <td>8,5/10</td>
               <td>8/10</td>
-              <td>8/10</td>
-              <td>8/10</td>
+              <td>6/10</td>
 
             </tr>
             <tr>
               <td>Meeting schedular</td>
+              <td>8,5/10</td>
               <td>8/10</td>
-              <td>8/10</td>
-              <td>8/10</td>
+              <td>6/10</td>
             </tr>
           </table>
-         <h5>Java</h5>
-         <table id="customers">
-            <tr>
-              <th>Use case</th>
-              <th>Easy</th>
-              <th>Support</th>
-              <th>Performance</th>
-            </tr>
-            <tr>
-            <td>Item List</td>
-              <td>8/10</td>
-              <td>8/10</td>
-              <td>8/10</td>
-            </tr>
-            <tr>
-           <td>Interactive card</td>
-              <td>8/10</td>
-              <td>8/10</td>
-              <td>8/10</td>
-            </tr>
-            <tr>
-            <td>Meeting schedular</td>
-              <td>8/10</td>
-              <td>8/10</td>
-              <td>8/10</td>
-            </tr>
-          </table>
+          <h5>Conclusion</h5>
+          <p>We notice that in these use cases code compiles slower while using kotlin but it becomes faster with incremental build so I decided to keep the results of the first compilation attempt. When it comes to code size, Kotlin requires less code than Java so that's why I increased the Kotlin's score on the 'Easy' column. And lastly, when it comes to the developers community of both languages, I gave a slighlty lesser score to Kotlin because its community is still sparse compared to Java. Therefore, documentation, tutorials or information about Kotlin is still not handy.</p>
           <hr />
         </section>
         <section class="js-section">
           <h3 class="section__title">Paradigms</h3>
-          <p><b>.... In progress ...</b> I'll be talking here about different programming paradigms and the ones supported in Java and Kotlin</p>
           
+          <h5>Object oriented programming</h5>
+          <p>OOP is based on three main concepts: encapsulation, inheritance and polymorphism while the main character is the <b>object</b>, it belongs to the <b>imperative</b> family</p>.
+          <h5>Functionnal programming</h5>
+          <p>Functionnal programming is based on composing pure functions, avoiding shared state, mutable data, and side-effects, it belongs to the <b>declarative</b> family </p>
+          <img src="img/fp_oop.png" width="500" height="300"/><br/>
+
+          <span style="font-size:10px;">Src:https://dzone.com/articles/object-oriented-programming-strikes-back</span>
+          <p>In general, Object oriented programming says that bringing together data and its behaviour in a single location makes it easier to understand how a program works. FP says that data and behaviour are distinctively different things and should be kept separate for clarity. In our case, Java has always been an object oriented programming language until Java 8 and it started slightly to borrow some functionnal programming styles with lambda expressions for instance.</p>
+          <p>But the problem is that android support only Java 7 so that's why Kotlin creators decided to bring more functionnal programming into Kotlin which makes it an Object Oriented language with a bit of a  functionnal programming style.</p>
+          <p>And no, abusing of the use of lambda expressions does not mean that it is a functionnal programming, it would more like respecting the immutability of the state for instance everytime a function is called, the same input must return the same output. <b>So does that make Kotlin a functionnal programming language?</b></p>
+          <p>Definitely not.</p>
+          <p>it still lacks some of the most important features like <a href="https://stackoverflow.com/questions/6246719/what-is-a-higher-kinded-type-in-scala">Higher Kinded Types</a> and <a href="https://en.wikipedia.org/wiki/Type_class">Typeclasses</a> but the goal isn't to switch to FP but rather just take advantage of some of its useful features like inline functions.</p>
+
       </section>
          <section class="js-section">
           <h3 class="section__title">Conclusion</h3>
-          <p><b>.... In progress ...</b></p>
+          <p>I guess after invoking these different aspects, we can now say that Kotlin is probably the best for Android applications as it seems more concise and progressive and for a language that just started it has quite plenty of ressources on the internet and an ethusiastic community. Neverthless, I still think for a good programming grasp of concepts, it is likable to learn and be comfortable with Java before moving to Kotlin.</p>
           
         </section>
       </article>
