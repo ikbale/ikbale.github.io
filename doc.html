@@ -51,21 +51,7 @@
             </p>
             <p>
             In order to potentially find a final answer to this question, I decided to lead this comparison by invoking 3 different aspects: performance, language features and paradigms, so I basically focused on the developers experience more.</p>
-          <!-- <h3 class="section__title">Installation</h3>
-          <div class="code__block code__block--notabs">
-            <pre class="code code--block">
-              <code>
-                $ scribbler  ——config
-                  {
-                    “encryption”: true, 
-                    “highlighting“: true,
-                    “prettyTable”: false,
-                    “font”: [“Helvetica”, “sans-serif”],
-                    “folder”: “~/Desktop“
-                  }
-              </code>
-            </pre>
-          </div> -->
+  
         </section>
         <section class="js-section">
           <h3 class="section__title">Language Features</h3>
@@ -104,10 +90,7 @@
               so if we want to access toto, the compiler will do a null check on the nullable variable.
              </td>
             </tr>
-              <!-- <tr>
-              <td>Coroutines</td>
-              <td>Render table with Scribbler’s pretty table style.</td>
-            </tr> -->
+
             <tr>
               <td>Type aliases </td>
               <td>This feature improves the code readibility by assigning a name to a complex type.
@@ -253,13 +236,55 @@
           <h3 class="section__title">Paradigms</h3>
           
           <h5>Object oriented programming</h5>
-          <p>OOP is based on three main concepts: encapsulation, inheritance and polymorphism while the main character is the <b>object</b>, it belongs to the <b>imperative</b> family</p>.
+          <p>OOP is based on three main concepts: encapsulation, inheritance and polymorphism while the main character is the <b>object</b>. It belongs to the <b>imperative</b> family.<br/><br/>
+          <b>But what is the innovation of object oriented programming?</b> <br/><br/>
+          Here's an example of a plain java class: 
+          <div class="code__block code__block--notabs">
+                  <pre class="code code--block">
+                    <code>
+                     Public Class Person{
+
+                      private String name;
+                      private int age;
+                      private String function;
+
+                      private Person(name, age, function){
+                         this.name = name;
+                         this.age = age;
+                         this.function = function;
+
+                    }
+                    public void eat(){
+                     //TODO
+                    }
+
+                    public void sleep(){
+                     //TODO
+                    }
+
+                    public void work(){
+                     //TODO
+                    }
+
+
+                   }
+                    </code>
+                  </pre>
+          </div>
+          <p>We call name, age and function class attributes and they represent our data and eat, sleep, work are functionalities. Those functionalities are the motor of our data, so Object Oriented Programming aims to gather these two elements in one single entity called a <b>Class</b>.</p>
+          Still isn't that clear? Just hold on.
+          <p>
+          A class is some sort of a prototype or a template of an object, an object with certain caracteristics that describes it; We can imagine that this object is you or me, and those caracteristics are your name or your age those are data (attributes) and also you as a human being, you do some actions like eat, sleep, drink or dance, thise are functionalities (functions or methods). Anyways, the "you" here is what we call an <b>Object</b>.
+          </p>
+
+          </p>
           <h5>Functionnal programming</h5>
           <p>Functionnal programming is based on composing pure functions, avoiding shared state, mutable data, and side-effects, it belongs to the <b>declarative</b> family </p>
           <img src="img/fp_oop.png" width="500" height="300"/><br/>
 
           <span style="font-size:10px;">Src:https://dzone.com/articles/object-oriented-programming-strikes-back</span>
-          <p>In general, Object oriented programming says that bringing together data and its behaviour in a single location makes it easier to understand how a program works. FP says that data and behaviour are distinctively different things and should be kept separate for clarity. In our case, Java has always been an object oriented programming language until Java 8 and it started slightly to borrow some functionnal programming styles with lambda expressions for instance.</p>
+          <p>Functionnal programming had its roots from mathematical concepts. It considers that all computations is the execution of  a series of mathematical functions. So functions in functionnal programming have some restrictions that functions of other programming languages don't have, the basic restriction is that these functions can't change their inputs also once the variable is declared, it can't be changed.<br/><br/>
+          In our case, Java has always been an object oriented programming language until Java 8 and it started slightly to borrow some functionnal programming styles with lambda expressions for instance.</p>
           <p>But the problem is that android support only Java 7 so that's why Kotlin creators decided to bring more functionnal programming into Kotlin which makes it an Object Oriented language with a bit of a  functionnal programming style.</p>
           <p>A side note about <b>lambda expressions</b> for those who are not familiar with this concept. Let's start with an example of a simple lambda expression:</p>
 
