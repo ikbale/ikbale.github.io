@@ -23,7 +23,7 @@
       <h1 class="logo">Java vs Kotlin <span class="logo__thin">Benchmark</span></h1>
       <ul class="menu">
         <div class="menu__item toggle"><span></span></div>
-        <li class="menu__item"><a href="https://github.com/ikbale/Java-vs-Kotlin-" target="_blank" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
+        <li class="menu__item"><a href="https://github.com/ikbale/ikbale.github.io" target="_blank" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
         <li class="menu__item"><a href="index.html" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
       </ul>
     </nav>
@@ -34,8 +34,7 @@
           <li class="js-btn">Language features</li>
           <li class="js-btn">Performances</li>
           <li class="js-btn">Paradigms</li>
-          <li class="js-btn">Conclusion</li>
-
+          <li class="js-btn">Conclusion  & Credits</li>
         </ul>
       </aside>
       <article class="doc__content">
@@ -247,7 +246,7 @@
             </tr>
           </table>
           <h5>Conclusion</h5>
-          <p>We notice that in these use cases code compiles slower while using kotlin but it becomes faster with incremental build so I decided to keep the results of the first compilation attempt. When it comes to code size, Kotlin requires less code than Java so that's why I increased the Kotlin's score on the 'Easy' column. And lastly, when it comes to the developers community of both languages, I gave a slighlty lesser score to Kotlin because its community is still sparse compared to Java. Therefore, documentation, tutorials or information about Kotlin is still not handy.</p>
+          <p>We notice that in these use cases code compiles slower while using kotlin but it becomes faster with incremental build so I decided to keep the results of the first compilation attempt. When it comes to code size, Kotlin requires less code than Java so that's why I increased the Kotlin's score on the 'Easy' column. And lastly, when it comes to the developers community of both languages, I gave a slighlty lesser score to Kotlin because its community is still sparse compared to Java. Therefore, documentation, tutorials or information about Kotlin are still not handy.</p>
           <hr />
         </section>
         <section class="js-section">
@@ -262,6 +261,19 @@
           <span style="font-size:10px;">Src:https://dzone.com/articles/object-oriented-programming-strikes-back</span>
           <p>In general, Object oriented programming says that bringing together data and its behaviour in a single location makes it easier to understand how a program works. FP says that data and behaviour are distinctively different things and should be kept separate for clarity. In our case, Java has always been an object oriented programming language until Java 8 and it started slightly to borrow some functionnal programming styles with lambda expressions for instance.</p>
           <p>But the problem is that android support only Java 7 so that's why Kotlin creators decided to bring more functionnal programming into Kotlin which makes it an Object Oriented language with a bit of a  functionnal programming style.</p>
+          <p>A side note about <b>lambda expressions</b> for those who are not familiar with this concept. Let's start with an example of a simple lambda expression:</p>
+
+                <div class="code__block code__block--notabs">
+                  <pre class="code code--block">
+                    <code>
+                     listOfDrinks.stream()
+                         .filter(arg -> arg.getDrink() == WATER)
+                         .collect(Collectors.toList());
+                    </code>
+                  </pre>
+                </div>
+          <p>
+          The stream function creates a stream out of our collection "listOfDrinks" and then its filtered such as each element of the list is represented by an argument 'arg' and finally we collect the results in a list again, this terminal action is necessary in lambda expressions.</p>
           <p>And no, abusing of the use of lambda expressions does not mean that it is a functionnal programming, it would more like respecting the immutability of the state for instance everytime a function is called, the same input must return the same output. <b>So does that make Kotlin a functionnal programming language?</b></p>
           <p>Definitely not.</p>
           <p>it still lacks some of the most important features like <a href="https://stackoverflow.com/questions/6246719/what-is-a-higher-kinded-type-in-scala">Higher Kinded Types</a> and <a href="https://en.wikipedia.org/wiki/Type_class">Typeclasses</a> but the goal isn't to switch to FP but rather just take advantage of some of its useful features like inline functions.</p>
@@ -270,6 +282,28 @@
          <section class="js-section">
           <h3 class="section__title">Conclusion</h3>
           <p>I guess after invoking these different aspects, we can now say that Kotlin is probably the best for Android applications as it seems more concise and progressive and for a language that just started it has quite plenty of ressources on the internet and an ethusiastic community. Neverthless, I still think for a good programming grasp of concepts, it is likable to learn and be comfortable with Java before moving to Kotlin.</p>
+          
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Credits</h3>
+          <p>I was inspired by these sources:</p>
+          <ul>
+          <li><a href="https://medium.com/keepsafe-engineering/kotlin-vs-java-compilation-speed-e6c174b39b5d" target="_blank">keepsafe-engineering</a>
+          </li>
+            <li><a href="https://arctouch.com/2017/05/kotlin-vs-java/" target="_blank">arctouch</a></li>
+            <li><a href="http://blog.erlem.fr/programmation/langage/java/11-petite-historique-du-langage-java" target="_blank">blog.erlem</a>
+            </li>
+            <li><a href="https://www.supinfo.com/articles/single/6088-kotlin-nouveau-langage-android" target="_blank">supinfo</a>
+            </li>
+            <li><a href="https://medium.com/@FreddieWang/why-we-use-kotlin-in-our-android-project-1be7847bd1fa" target="_blank">medium.com (why-we-use-kotlin)</a>
+            </li>
+            <li><a href="https://kotlinlang.org/docs/reference/extensions.html" target="_blank">kotlinlang.org</a></li>
+            <li><a href="https://medium.com/@JorgeCastilloPr/kotlin-functional-programming-does-it-make-sense-36ad07e6bacf" target="_blank">medium.com (kotlin-functional-programming)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=X1RVYt2QKQE" target="_blank">Google I/O 2017</a></li>
+
+
+          </ul>
           
         </section>
       </article>
