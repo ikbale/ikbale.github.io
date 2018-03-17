@@ -116,6 +116,10 @@ if (btns.length && sections.length > 0) {
    btns[4].addEventListener('click', function (event) {
     smoothScrollTo(sections[4], event);
   });
+
+  btns[5].addEventListener('click', function (event) {
+    smoothScrollTo(sections[5], event);
+  });
 }
 
 // fix menu to page-top once user starts scrolling
