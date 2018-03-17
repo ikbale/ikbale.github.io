@@ -97,7 +97,7 @@
                  <div class="code__block code__block--notabs">
                   <pre class="code code--block">
                     <code>
-                      typealias Credentials = Map<UserName, PasswordHash>
+                      typealias Credentials = Map&lt;UserName, PasswordHash&gt;
                       fun useCrd(crd: Credentials) {
                                   // @TODO
                               }
@@ -139,8 +139,11 @@
         <div class="feature__item">
           <h3 class="section__title">Build speed:</h3>
         </div>
+        <p>Before getting straight into analysis, I would like to clear up some build concepts and tools. Kotlin projects can be build by multiple build tools like Ant, Maven, Gradle ... Here I'll be interested in Gradle as it is the most common build tool used in android projects. There are multiple ways to build a project: <b>Clean builds</b> and <b>incremental build</b>.<br/><br/>what is the difference between these two?</p>
+        <p>Clean build compiles all source files in code whether they were changed or not but incremental build will compile only the modified files and the ones related to them. This difference approach can make a performance difference using these two types of compilation.</p>
+        <p>Next, I will be representing the results of building both Java in Kotlin code using clean and the incremental build and study the differences and similarities.</p>
         <h5>1. Clean builds</h5>
-          <p>We will be testing with these two scenarios after 10 consecutive builds:<br>
+          <p>The two scenarios here are activating the Gradle daemon and then deactiviting it to spot if there are any differences. Usually when building a Java code, one will stop the JVM each time a build is done hence the performance that was once improved after multiple builds will be lost, the role of the Gradle daemon here is that it maintains the improved performance while staying alive between builds.<br> Joggling between these two scenarios can give us different results:
             <ul>
               <li> Execute without Gradle daemon (worst case scenario) : Java compiles 17% faster than Kotlin.
                 <img src="img/sc1.png" width="500" height="300"/>
@@ -151,17 +154,23 @@
             </ul>
              
           </p>
-        </div>
+          <p>In the bar charts above, each couple of bars represents the time (in seconds) that each build has taken, we notice that there are 10 coupled bar charts it means ten consecutive builds were executed and after each build the duration was written down to finally capture the compilation speed rate difference between both languages. The reason why it's been tested out with multiple builds is that usually compilation takes multiple attempts to be improved.</p>
+
+          <p>Why is Java faster in clean build in both scenarios?</p>
+          <p>It is most likely that Kotlin needs a little more warmup than Java does, but is it genuine to compare the speed of two languages? I'll give more details after completing the next scenario.</p>
+          </div>
           <h5>2. Incremental builds</h5>
-          <ul><li>In general, while activating incremental builds after few executions, Kotlin's compilation becomes slightly faster than Java. In conclusion, the most common scenario for developers is the incremental build so we notice that Koltin is not less faster than Java.
+          <p>This second scenario consists of using the incremental build. Built-in tasks, like JavaCompile declare a set of inputs (Java source files) and a set of outputs (class files). Gradle uses this information to determine if a task is up-to-date and needs to perform any work. If none of the inputs or outputs have changed, Gradle can skip that task. That's what we call Gradle's incremental build</p>
+          
                <img src="img/sc5.png" width="500" height="300"/><br/>
-          Ten consecutive incremental builds with one core file changed.
+        
 
-          </li>
-         </ul>
+          <p>Same thing here, 10 consecutive builds has been tested out and we notice that in the first build Java is faster than Kotlin but after few builds they became almost the same so we can say that Kotlin performs better in incremental build which is basically the most common scenario in the developers' world.</p>
 
-           
-          </p>
+          <h5>Conclusion</h5>
+          <p>The question of whether this language is faster than another is kind of meaningless in this case because the language performance depends on its runtime, the operating system and the code. While both Java and Kotlin are JVM languages which means their both  compilers generate the same bytecode. Hence, even though in the previous scenarios seems that their performances are a little different, I still think there are no apparent reason for both languages to be so much different when it comes too build speed. It's rather up to the programmer to write an optimized and clean code and most important to take advantage of great build-in functionalities provided by a language</p>
+          <hr />
+
           <div class="feature__item">
              <h3 class="section__title">Test application:</h3>
           </div>
@@ -278,14 +287,47 @@
           </p>
 
           </p>
-          <h5>Functionnal programming</h5>
-          <p>Functionnal programming is based on composing pure functions, avoiding shared state, mutable data, and side-effects, it belongs to the <b>declarative</b> family </p>
+          <h5>Functional programming</h5>
+          <p>Functional programming is based on composing pure functions, avoiding shared state, mutable data, and side-effects, it belongs to the <b>declarative</b> family </p>
           <img src="img/fp_oop.png" width="500" height="300"/><br/>
 
           <span style="font-size:10px;">Src:https://dzone.com/articles/object-oriented-programming-strikes-back</span>
-          <p>Functionnal programming had its roots from mathematical concepts. It considers that all computations is the execution of  a series of mathematical functions. So functions in functionnal programming have some restrictions that functions of other programming languages don't have, the basic restriction is that these functions can't change their inputs also once the variable is declared, it can't be changed.<br/><br/>
-          In our case, Java has always been an object oriented programming language until Java 8 and it started slightly to borrow some functionnal programming styles with lambda expressions for instance.</p>
-          <p>But the problem is that android support only Java 7 so that's why Kotlin creators decided to bring more functionnal programming into Kotlin which makes it an Object Oriented language with a bit of a  functionnal programming style.</p>
+          <p>Functional programming had its roots from mathematical concepts. It considers that all computations is the execution of  a series of mathematical functions. So functions in Functional programming have some restrictions that functions of other programming languages don't have, the basic restriction is that these functions can't change their inputs also once the variable is declared, it can't be changed.</p>
+          <p>This paradigm focuses on computing resulats rather than performing actions, here is an example of a code using the imperative approach:</p>
+             <div class="code__block code__block--notabs">
+                  <pre class="code code--block">
+                    <code>
+                    const triple = (arr) => {
+                      let results = []
+                      for(let i = 0; i &lt; arr.length;i++){
+                        results.push(arr[i]*3)
+                    }
+                    return results
+                  }
+
+                    const sum = (arr) => {
+                      let results = []
+                      for(let i = 0; i &lt; arr.length;i++){
+                        results += arr[i]
+                    }
+                    return results
+                  }
+                    </code>
+                  </pre>
+          </div>
+          <p>Now here's the same code in the declarative style of functional programming:</p>
+               <div class="code__block code__block--notabs">
+                  <pre class="code code--block">
+                    <code>
+                    const triple = (arr) => arr.map((current)=> currentItem*3)
+
+                    const sum = (arr) => arr.reduce((prev,current)=>prev+current,0)
+                    </code>
+                  </pre>
+          </div>
+          <p>
+          In our case, Java has always been an object oriented programming language until Java 8 and it started slightly to borrow some Functional programming styles with lambda expressions for instance.</p>
+          <p>But the problem is that android support only Java 7 so that's why Kotlin creators decided to bring more Functional programming into Kotlin which makes it an Object Oriented language with a bit of a  Functional programming style.</p>
           <p>A side note about <b>lambda expressions</b> for those who are not familiar with this concept. Let's start with an example of a simple lambda expression:</p>
 
                 <div class="code__block code__block--notabs">
@@ -299,7 +341,7 @@
                 </div>
           <p>
           The stream function creates a stream out of our collection "listOfDrinks" and then its filtered such as each element of the list is represented by an argument 'arg' and finally we collect the results in a list again, this terminal action is necessary in lambda expressions.</p>
-          <p>And no, abusing of the use of lambda expressions does not mean that it is a functionnal programming, it would more like respecting the immutability of the state for instance everytime a function is called, the same input must return the same output. <b>So does that make Kotlin a functionnal programming language?</b></p>
+          <p>And no, abusing of the use of lambda expressions does not mean that it is a Functional programming, it would more like respecting the immutability of the state for instance everytime a function is called, the same input must return the same output. <b>So does that make Kotlin a Functional programming language?</b></p>
           <p>Definitely not.</p>
           <p>it still lacks some of the most important features like <a href="https://stackoverflow.com/questions/6246719/what-is-a-higher-kinded-type-in-scala">Higher Kinded Types</a> and <a href="https://en.wikipedia.org/wiki/Type_class">Typeclasses</a> but the goal isn't to switch to FP but rather just take advantage of some of its useful features like inline functions.</p>
 
