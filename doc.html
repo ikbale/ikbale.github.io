@@ -354,16 +354,28 @@
       </section>
       <section class="js-section">
           <h3 class="section__title">Critics</h3>
-          <p>Limits of this approach and of quantitative benchmarking in general?</p>
-          <p>I guess after invoking these different aspects, we can now say that Kotlin is probably the best for Android applications as it seems more concise and progressive and for a language that just started it has quite plenty of ressources on the internet and an ethusiastic community. Neverthless, I still think for a good programming grasp of concepts, it is likable to learn and be comfortable with Java before moving to Kotlin.</p>
-          <p>I guess after invoking these different aspects, we can now say that Kotlin is probably the best for Android applications as it seems more concise and progressive and for a language that just started it has quite plenty of ressources on the internet and an ethusiastic community. Neverthless, I still think for a good programming grasp of concepts, it is likable to learn and be comfortable with Java before moving to Kotlin.</p>
-          <p>I guess after invoking these different aspects, we can now say that Kotlin is probably the best for Android applications as it seems more concise and progressive and for a language that just started it has quite plenty of ressources on the internet and an ethusiastic community. Neverthless, I still think for a good programming grasp of concepts, it is likable to learn and be comfortable with Java before moving to Kotlin.</p>
-          <p>I guess after invoking these different aspects, we can now say that Kotlin is probably the best for Android applications as it seems more concise and progressive and for a language that just started it has quite plenty of ressources on the internet and an ethusiastic community. Neverthless, I still think for a good programming grasp of concepts, it is likable to learn and be comfortable with Java before moving to Kotlin.</p>
+
+          <p>The question to be asked now is: <b><i>what is the best way to benchmark programming languages?</i></b></p>
+
+          <p>Actually, we can't benchmark programming languages, we can only benchmark programming language implementations. For example there are big differences between the performance characteristics of Ruby MRI and JRuby, or CPython, PyPy and IronPython.</p>
+
+          <p>
+          Besides, all language implementations use compilation and virtual machines (most of them); it's just that in some the virtual machine is a temporary abstraction that is weaved in the code and disappears, while others keep it around during execution.</p>
+
+          <p>
+          Anyways, the best way to benchmark them is to write the complete, real, working, application in both languages, and then measure parameters we are interested in. For instance, code size, time it took to develop, maintainability, processor usage, memory usage, latency ...</p>
+          <p>The hard part is making the benchmark actually represent the language implementation's performance, and not our relative skill level at the different languages and environments.This is the limitation of this approach that I've followed is that it doesn't quantify the fact that i'm a total beginner in Kotlin's programming language that I might have skipped some amazing optimization details while building the test applications test.</p>
+
+          <p>
+          The worst way that is still not completely insane is the benchmarks game here  <a href="http://benchmarksgame.alioth.debian.org/" target="_blank"> Computer Language Benchmarks Game</a>. They have a set of synthetic tests that stress different parts of language implementations, which we can probably use to make high-level predictions about how your actual program is about to behave. The reality will be different because these systems (the software and hardware) are so complex that nobody can make reliable predictions so it's easier to just write the program and profile than try to accurately predict how it will perform.</p>
+
+          <p>Eventually, this approach has its limitations as it doesnt measure performance using a real application (although I used a test application but still basic). In other words, attempts at running programs that are much simpler than a real application could lead to performance pitfalls. Also not all performance aspects were tackled during this benchmark as I focused on three aspects only: Language features, build time and programmation paradigms. The computer programs used for compiling this banchmark data in this section may not have been fully optimized, the most accurate benchmarks are those that are customized to a particular situation. So it's better to avoid over-generalization.</p>
+         
           
       </section>
          <section class="js-section">
           <h3 class="section__title">Conclusion</h3>
-          <p>I guess after invoking these different aspects, we can now say that Kotlin is probably the best for Android applications as it seems more concise and progressive and for a language that just started it has quite plenty of ressources on the internet and an ethusiastic community. Neverthless, I still think for a good programming grasp of concepts, it is likable to learn and be comfortable with Java before moving to Kotlin.</p>
+          <p>I guess after invoking these different aspects and based on our specific though limited benchmark, we can now say that Kotlin is probably the best for Android applications as it seems more concise and progressive and for a language that just started it has quite plenty of ressources on the internet and an ethusiastic community. Neverthless, I still think for a good programming grasp of concepts, it is likable to learn and be comfortable with Java before moving to Kotlin.</p>
           
         </section>
 
